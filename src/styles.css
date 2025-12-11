@@ -1,9 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background: linear-gradient(135deg, #ffffcc 0%, #ccffff 50%, #ffccff 100%);
+  background: rgb(220, 220, 220);
   background-attachment: fixed;
   font-family: 'Comic Sans MS', 'Arial', cursive;
   margin: 0;
   padding: 0;
+}
+
+.btn {
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(to right, #b2b2b2, #666666);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #b0b0b0, #555555);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
