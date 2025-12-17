@@ -3,6 +3,9 @@
     <button class="btn" (click)="insertExercise()">
         INSERISCI NUOVO ESERCIZIO
     </button>
+    @if(addMode){
+    <app-exercises-edit [exercise]="exerciseToEdit" [mode]="'insert'"></app-exercises-edit>
+    }
 </div>
 <div class="container">
     @for (item of exercises; track item.id) {
@@ -10,21 +13,23 @@
         <div class="titolo">
             <h2>{{ item.name }} </h2>
         </div>
-        <p><strong> Gruppo muscolare:</strong> {{ item.muscleGroup }}</p>
-        <p><strong> Serie:</strong> {{ item.sets }} | <strong> Ripetizioni:</strong> {{ item.reps }}</p>
-        @if (item.weightKg) {
-        <p><strong> Peso (kg):</strong> {{ item.weightKg }}</p>
-        }
-        @if (item.notes) {
-        <p><strong> Note:</strong> {{ item.notes }}</p>
-        }
+        <div class="dati">
+            <p><strong> Gruppo muscolare:</strong> {{ item.muscleGroup }}</p>
+            <p><strong> Serie:</strong> {{ item.sets }} | <strong> Ripetizioni:</strong> {{ item.reps }}</p>
+            @if (item.weightKg) {
+            <p><strong> Peso (kg):</strong> {{ item.weightKg }}</p>
+            }
+            @if (item.notes) {
+            <p><strong> Note:</strong> {{ item.notes }}</p>
+            }
+        </div>
         <div class="button-group">
             <button class="btn" (click)="editExercise(item, item.id)">
                 MODIFICA
             </button>
             @if(editMode){
             @if(editingId === item.id){
-            <app-exercises-edit [exercise]="exerciseToEdit"></app-exercises-edit>
+            <app-exercises-edit [exercise]="exerciseToEdit" [mode]="'edit'"></app-exercises-edit>
             }
             }
             <button class="btn" (click)="deleteExercise(item.id)">

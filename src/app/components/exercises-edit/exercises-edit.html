@@ -1,9 +1,13 @@
 @if(editMode){
-<div class="modal-overlay" (click)="cancelEdit()">
+<div class="modal-overlay">
   <div class="modal">
-    <h2>🔧 Modalità Modifica Attiva 🔧</h2>
     <div class="edit-mode">
-      <h3>Modifica Esercizio: {{ exerciseToEdit.name }}</h3>
+      @if(mode() === 'edit'){
+      <h3>Modifica esercizio: {{ exerciseToEdit.name }}</h3>
+      }
+     @if(mode() === 'insert'){
+      <h3>Inserisci nuovo esercizio:</h3>
+      }
       <label>
         Nome Esercizio:
         <input type="text" [(ngModel)]="exerciseToEdit.name" placeholder="Scrivi un nome" />
@@ -12,14 +16,16 @@
         Gruppo Muscolare:
         <input type="text" [(ngModel)]="exerciseToEdit.muscleGroup" placeholder="Scrivi il gruppo muscolare" />
       </label>
-      <label>
-        Serie:
-        <input type="number" [(ngModel)]="exerciseToEdit.sets" placeholder="Numero di serie" />
-      </label>
-      <label>
-        Ripetizioni:
-        <input type="number" [(ngModel)]="exerciseToEdit.reps" placeholder="Numero di ripetizioni" />
-      </label>
+      <div class="serie">
+        <label>
+          Serie:
+          <input type="number" [(ngModel)]="exerciseToEdit.sets" placeholder="Numero di serie" />
+        </label>
+        <label>
+          Ripetizioni:
+          <input type="number" [(ngModel)]="exerciseToEdit.reps" placeholder="Numero di ripetizioni" />
+        </label>
+      </div>
       <label>
         Peso (kg):
         <input type="number" [(ngModel)]="exerciseToEdit.weightKg" placeholder="Peso sollevato in kg" />
@@ -30,10 +36,10 @@
       </label>
       <div class="button-group">
         <button class="btn" (click)="saveExercise()">
-          💾 SALVA MODIFICHE
+          SALVA MODIFICHE
         </button>
         <button class="btn" (click)="cancelEdit()">
-          ❌ ANNULLA
+          ANNULLA
         </button>
       </div>
     </div>

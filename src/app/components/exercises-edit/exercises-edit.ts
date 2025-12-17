@@ -15,8 +15,9 @@ export class ExercisesEdit {
   exerciseToEdit: Exercise = new Exercise();
   exercises: Exercise[] = [];
   exercise = input.required<Exercise>();
+  mode = input.required<string>();
   exercisesService = inject(ExerciseService);
-  editMode: boolean = true;
+  editMode = true;
 
   ngOnInit() {
     const stored = localStorage.getItem('exercises');
@@ -24,17 +25,16 @@ export class ExercisesEdit {
       this.exercises = JSON.parse(stored);
     }
     this.exerciseToEdit = this.exercise();
+
   }
 
   saveExercise() {
     if (!this.exerciseToEdit.name || this.exerciseToEdit.name.trim() === '') {
-      alert('Il nome dell\'esercizio è obbligatorio! ⚠️');
+      alert('Il nome dell\'esercizio è obbligatorio!');
       return;
     }
     if (this.exerciseToEdit.id === 0) {
-      // assegno ID progressivo
       this.exerciseToEdit.id = this.exercises.length + 1;
-      // inserisco l'esercizio nell'array
       this.exercises.push(this.exerciseToEdit);
     }
     else {
@@ -46,9 +46,7 @@ export class ExercisesEdit {
     window.location.reload();
     this.exercisesService.saveExercisesToLocalStorage(this.exercises);
     console.log('Esercizio salvato:', this.exerciseToEdit);
-    // torno alla modalità visualizzazione (elenco)
     this.editMode = false;
-    // resetto l'esercizio in modifica
     this.exerciseToEdit = new Exercise();
   }
 

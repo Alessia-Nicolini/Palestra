@@ -13,6 +13,7 @@ import { ExerciseService } from '../../services/exercise';
 export class ExercisesList {
   exerciseToEdit: Exercise = new Exercise();
   editMode: boolean = false;
+  addMode: boolean = false;
   editingId: number | null = null;
   exercisesService = inject(ExerciseService);
 
@@ -81,15 +82,16 @@ export class ExercisesList {
   }
 
   deleteExercise(id: number) {
-    const confirmed = confirm(`Sei sicuro di voler eliminare questo esercizio? 🗑️`);
+    const confirmed = confirm(`Sei sicuro di voler eliminare questo esercizio? `);
     if (confirmed) {
       this.exercises = this.exercises.filter(ex => ex.id !== id);
       this.exercisesService.saveExercisesToLocalStorage(this.exercises);
-      alert('Esercizio eliminato! ✅');
+      alert('Esercizio eliminato!');
     }
   }
 
      insertExercise() {
-     this.editMode = true;
+     this.addMode = true;
+     this.exerciseToEdit = new Exercise;
    }
 }
