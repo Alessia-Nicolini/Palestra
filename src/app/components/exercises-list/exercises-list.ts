@@ -2,11 +2,13 @@ import { Component, inject } from '@angular/core';
 import { Exercise } from '../../models/exercise';
 import { ExercisesEdit } from "../exercises-edit/exercises-edit";
 import { ExerciseService } from '../../services/exercise';
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-exercises-list',
   standalone: true,
-  imports: [ExercisesEdit],
+  imports: [ExercisesEdit, RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './exercises-list.html',
   styleUrl: './exercises-list.css',
 })
@@ -21,7 +23,7 @@ export class ExercisesList {
     {
       id: 1,
       name: 'Panca piana con bilanciere',
-      muscleGroup: 'petto',
+      muscleGroup: 'Petto',
       sets: 3,
       reps: 8,
       weightKg: 50,
@@ -30,7 +32,7 @@ export class ExercisesList {
     {
       id: 2,
       name: 'Lat machine avanti',
-      muscleGroup: 'schiena',
+      muscleGroup: 'Schiena',
       sets: 3,
       reps: 10,
       weightKg: 40,
@@ -39,7 +41,7 @@ export class ExercisesList {
     {
       id: 3,
       name: 'Squat al multipower',
-      muscleGroup: 'gambe',
+      muscleGroup: 'Gambe',
       sets: 4,
       reps: 8,
       weightKg: 60,
@@ -48,7 +50,7 @@ export class ExercisesList {
     {
       id: 4,
       name: 'Curl manubri in piedi',
-      muscleGroup: 'bicipiti',
+      muscleGroup: 'Bicipiti',
       sets: 3,
       reps: 12,
       weightKg: 10
@@ -56,7 +58,7 @@ export class ExercisesList {
     {
       id: 5,
       name: 'French press bilanciere EZ',
-      muscleGroup: 'tricipiti',
+      muscleGroup: 'Tricipiti',
       sets: 3,
       reps: 10,
       weightKg: 25
@@ -64,7 +66,7 @@ export class ExercisesList {
     {
       id: 6,
       name: 'Plank',
-      muscleGroup: 'core',
+      muscleGroup: 'Core',
       sets: 3,
       reps: 30,
       notes: '30 secondi a serie'

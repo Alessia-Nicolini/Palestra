@@ -1,7 +1,17 @@
+<div class="headerMenu">
+    <h1>GYM TONIC</h1>
+    <p>Benvenuto nel tuo programma di allenamento!</p>
+  </div>
 <div class="header">
     <h1>Lista esercizi:</h1>
+    <button class="btn"  routerLink="session" routerLinkActive="active">
+        INSERISCI SESSIONE
+    </button>
+    <button class="btn"  routerLink="sessionStored" routerLinkActive="active">
+        STORICO SESSIONI
+    </button>
     <button class="btn" (click)="insertExercise()">
-        INSERISCI NUOVO ESERCIZIO
+        INSERISCI ESERCIZIO
     </button>
     @if(addMode){
     <app-exercises-edit [exercise]="exerciseToEdit" [mode]="'insert'"></app-exercises-edit>

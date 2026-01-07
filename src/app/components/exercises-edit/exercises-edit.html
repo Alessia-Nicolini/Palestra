@@ -5,7 +5,7 @@
       @if(mode() === 'edit'){
       <h3>Modifica esercizio: {{ exerciseToEdit.name }}</h3>
       }
-     @if(mode() === 'insert'){
+      @if(mode() === 'insert'){
       <h3>Inserisci nuovo esercizio:</h3>
       }
       <label>
@@ -14,7 +14,14 @@
       </label>
       <label>
         Gruppo Muscolare:
-        <input type="text" [(ngModel)]="exerciseToEdit.muscleGroup" placeholder="Scrivi il gruppo muscolare" />
+        <select [(ngModel)]="exerciseToEdit.muscleGroup">
+          <option value="" disabled>Seleziona gruppo muscolare</option>
+          @for (group of muscleGroups; track $index) {
+          <option [value]="group" [selected]="exerciseToEdit.muscleGroup === group">
+            {{ group }}
+          </option>
+          }
+        </select>
       </label>
       <div class="serie">
         <label>

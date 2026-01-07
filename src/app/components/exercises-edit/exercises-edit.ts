@@ -18,6 +18,7 @@ export class ExercisesEdit {
   mode = input.required<string>();
   exercisesService = inject(ExerciseService);
   editMode = true;
+  muscleGroups: string[] = ['Petto', 'Spalle', 'Gambe', 'Braccia', 'Core', 'Bicipiti', 'Tricipiti', 'Schiena'];
 
   ngOnInit() {
     const stored = localStorage.getItem('exercises');
