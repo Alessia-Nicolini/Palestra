@@ -5,7 +5,7 @@
     margin: 20px;
 }
 
-.titolo-sessione{
+.titolo-sessione {
     display: flex;
     flex-direction: column;
 }
@@ -157,4 +157,63 @@ select {
     color: #222;
     margin-left: 20px;
     margin-top: 30px;
+}
+
+@media (max-width: 800px) {
+    .exercise-card {
+        grid-template-columns: 1fr;
+    }
+
+    .session-exercise {
+        grid-template-columns: 1fr;
+    }
+
+    .dati {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column-reverse;
+        align-items: end;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 180px;
+    }
+
+    .modal {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .header h2 {
+        font-size: 20px;
+    }
+
+    .header h4 {
+        font-size: 14px;
+    }
+
+    .exercise-card {
+        margin: 10px;
+    }
+
+    .dati {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+  .modal {
+    padding: 20px;
+    width: 80%;
+    max-width: 90%; 
+    transform: scale(1);
+  }
+
+  .btn{
+    margin: 5px;
+  }
 }

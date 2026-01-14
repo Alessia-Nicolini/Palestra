@@ -106,3 +106,55 @@
 .dati strong {
   color: #555;
 }
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+    margin: 10px; 
+  }
+
+  .headerMenu h1 {
+    font-size: 36px;
+  }
+
+  .exercise-card {
+    margin: 10px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerMenu {
+    height: 300px;
+  }
+
+  .headerMenu h1 {
+    font-size: 28px;
+  }
+
+  .headerMenu p {
+    font-size: 14px;
+  }
+
+  .titolo {
+    font-size: 16px;
+  }
+
+  .dati {
+    grid-template-columns: 1fr; 
+  }
+
+  .button-group {
+    gap: 5px;
+  }
+
+  .btn{
+    width: 180px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+}
