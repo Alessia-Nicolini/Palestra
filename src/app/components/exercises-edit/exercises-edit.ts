@@ -54,6 +54,7 @@ export class ExercisesEdit {
   cancelEdit() {
     this.editMode = false;
     this.exerciseToEdit = new Exercise();
+    window.location.reload();
   }
 
 }

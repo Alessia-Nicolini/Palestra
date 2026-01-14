@@ -77,11 +77,10 @@ export class ExercisesList {
   }
 
   editExercise(exercise: Exercise, id: number) {
-    this.closeModal();
     this.editingId = exercise.id;
     this.exerciseToEdit = { ...exercise };
     this.modalMode = 'edit';
-  }
+}
 
   deleteExercise(id: number) {
     const confirmed = confirm(`Sei sicuro di voler eliminare questo esercizio? `);
@@ -100,5 +99,6 @@ export class ExercisesList {
   closeModal() {
     this.modalMode = null;
     this.exerciseToEdit = new Exercise();
+    this.editingId = null;
   }
 }

@@ -61,9 +61,13 @@
 }
 
 .dati p {
-    margin: 0;
-    font-size: 14px;
-    color: #333;
+    margin: 8px 0;
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.dati strong {
+    color: #555;
 }
 
 .session-exercise .dati p strong {
