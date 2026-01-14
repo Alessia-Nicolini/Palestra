@@ -1,0 +1,78 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+}
+
+.header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    margin: 0;
+}
+
+.exercise-card {
+    background-color: var(--bg-card);
+    border: none;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 0px;
+    margin: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exercise-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.titolo {
+    background: linear-gradient(135deg, #000, #222);
+    color: white;
+    margin-top: 0;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 5px 0 0;
+    letter-spacing: 1px;
+}
+
+.session-exercise {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px;
+}
+
+.dati {
+    margin: 10px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.dati p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.session-exercise .dati p strong {
+    color: #000;
+}
+
+.empty-message {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    margin: 20px;
+}

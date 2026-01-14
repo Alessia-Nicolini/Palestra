@@ -1,1 +1,37 @@
-<p>session-stored works!</p>
+<div class="header">
+    <h2>Storico Sessioni</h2>
+    <div class="home">
+        <button class="btn" routerLink="/" routerLinkActive="active">
+            TORNA ALLA HOME
+        </button>
+    </div>
+</div>
+
+@if(sessions.length === 0){
+<div>
+    Nessuna sessione salvata
+</div>
+}
+<div class="session-exercise">
+    @for (session of sessions; track $index) {
+    <div class="exercise-card">
+        <div class="titolo">
+            <h2>{{ session.title }} </h2>
+        </div>
+        <div class="session-exercise"></div>
+        @for (ex of session.exercises; track $index) {
+        <div class="dati">
+            <p><strong> Gruppo muscolare:</strong> {{ ex.muscleGroup }}</p>
+            <p><strong> Serie:</strong> {{ ex.sets }} | <strong> Ripetizioni:</strong> {{ ex.reps }}</p>
+            @if (ex.weightKg) {
+            <p><strong> Peso (kg):</strong> {{ ex.weightKg }}</p>
+            }
+            @if (ex.notes) {
+            <p><strong> Note:</strong> {{ ex.notes }}</p>
+            }
+        </div>
+        }
+
+    </div>
+    }
+</div>

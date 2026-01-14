@@ -3,10 +3,11 @@ import { Exercise } from '../../models/exercise';
 import { FormsModule } from '@angular/forms';
 import { DatePipe, NgStyle } from '@angular/common';
 import { Session } from '../../models/session';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-session-exercises',
-  imports: [FormsModule, DatePipe, NgStyle],
+  imports: [FormsModule, DatePipe, NgStyle, RouterLink, RouterLinkActive],
   templateUrl: './session-exercises.html',
   styleUrl: './session-exercises.css',
 })

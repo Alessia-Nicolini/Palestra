@@ -14,8 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ExercisesList {
   exerciseToEdit: Exercise = new Exercise();
-  editMode: boolean = false;
-  addMode: boolean = false;
+  modalMode: 'edit' | 'insert' | null = null;
   editingId: number | null = null;
   exercisesService = inject(ExerciseService);
 
@@ -78,9 +77,10 @@ export class ExercisesList {
   }
 
   editExercise(exercise: Exercise, id: number) {
-    this.editMode = true;
+    this.closeModal();
     this.editingId = exercise.id;
     this.exerciseToEdit = { ...exercise };
+    this.modalMode = 'edit';
   }
 
   deleteExercise(id: number) {
@@ -92,8 +92,13 @@ export class ExercisesList {
     }
   }
 
-     insertExercise() {
-     this.addMode = true;
-     this.exerciseToEdit = new Exercise;
-   }
+  insertExercise() {
+    this.modalMode = 'insert';
+    this.exerciseToEdit = new Exercise;
+  }
+
+  closeModal() {
+    this.modalMode = null;
+    this.exerciseToEdit = new Exercise();
+  }
 }

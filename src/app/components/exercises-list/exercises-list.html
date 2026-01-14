@@ -1,20 +1,21 @@
 <div class="headerMenu">
     <h1>GYM TONIC</h1>
     <p>Benvenuto nel tuo programma di allenamento!</p>
-  </div>
+</div>
 <div class="header">
     <h1>Lista esercizi:</h1>
-    <button class="btn"  routerLink="session" routerLinkActive="active">
+    <button class="btn" routerLink="session" routerLinkActive="active">
         INSERISCI SESSIONE
     </button>
-    <button class="btn"  routerLink="sessionStored" routerLinkActive="active">
+    <button class="btn" routerLink="sessionStored" routerLinkActive="active">
         STORICO SESSIONI
     </button>
     <button class="btn" (click)="insertExercise()">
         INSERISCI ESERCIZIO
     </button>
-    @if(addMode){
-    <app-exercises-edit [exercise]="exerciseToEdit" [mode]="'insert'"></app-exercises-edit>
+    @if(modalMode === 'insert'){
+    <app-exercises-edit [exercise]="exerciseToEdit" [mode]="'insert'" (close)="closeModal()">
+    </app-exercises-edit>
     }
 </div>
 <div class="container">
@@ -37,11 +38,6 @@
             <button class="btn" (click)="editExercise(item, item.id)">
                 MODIFICA
             </button>
-            @if(editMode){
-            @if(editingId === item.id){
-            <app-exercises-edit [exercise]="exerciseToEdit" [mode]="'edit'"></app-exercises-edit>
-            }
-            }
             <button class="btn" (click)="deleteExercise(item.id)">
                 ELIMINA
             </button>
@@ -49,3 +45,9 @@
     </div>
     }
 </div>
+
+
+@if(modalMode === 'edit'){
+<app-exercises-edit [exercise]="exerciseToEdit" [mode]="'edit'" (close)="closeModal()">
+</app-exercises-edit>
+}
